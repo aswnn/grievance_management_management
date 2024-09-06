@@ -1,0 +1,96 @@
+.assignee-dashboard {
+    display: flex;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+  }
+  
+  .assignee-sidebar {
+    width: 25%;
+    padding: 40px;
+    background-color: #34495e;
+  }
+  
+  .assignee-sidebar h2 {
+    text-align: center;
+    color: white;
+    margin-top: 20px;
+  }
+  
+  .assignee-status-box {
+    margin-top: 60px;
+    background-color: #5a6f83;
+    padding: 20px;
+    margin-bottom: 104px !important;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .assignee-status-box h3 {
+    font-size: 20px;
+    color: white;
+  }
+  
+  .assignee-logout-button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 4px;
+    background-color: hsl(6, 78%, 57%, 0.9); 
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1em;
+  }
+  
+  .assignee-logout-button:hover {
+    background-color: #d32f2f;
+  }
+  
+  .assignee-content {
+    width: 80%;
+    padding: 20px;
+    
+    background-color: #f1f1f1;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  table, th, td {
+    border: 1px solid #ddd;
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #34495e; 
+    color: white;
+  }
+  
+  .assignee-icon {
+    cursor: not-allowed; 
+    margin-right: 10px;
+    font-size: 1.2em;
+  }
+  
+  .assignee-icon.view-comments-icon {
+    color: #4caf50;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+  }
+  
+  .assignee-icon.feedback-received-icon {
+    color: #f57c00;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+  }
+  
