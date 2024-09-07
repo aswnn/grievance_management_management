@@ -1,7 +1,9 @@
 import React from 'react';
 import './SupervisorDashboard.css';
+import { useNavigate} from 'react-router-dom';
 
 const SupervisorDashboard = () => {
+  const navigate = useNavigate();
   return (
     <div className="supervisor-dashboard">
       <div className="sidebar">
@@ -18,7 +20,7 @@ const SupervisorDashboard = () => {
           <h3>Pending Complaints</h3>
           <p>--</p>
         </div>
-        <button className="logout-button">Logout</button>
+        <button className="logout-button" onClick={()=>navigate('/')}>Logout</button>
       </div>
       
       <div className="content">

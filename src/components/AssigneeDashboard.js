@@ -1,7 +1,9 @@
 import React from 'react';
 import './AssigneeDashboard.css';
+import { useNavigate } from 'react-router-dom';
 
 const AssigneeDashboard = () => {
+  const navigate = useNavigate();
   return (
     <div className="assignee-dashboard">
       <div className="assignee-sidebar">
@@ -14,7 +16,7 @@ const AssigneeDashboard = () => {
           <h3>Pending Complaints</h3>
           <p>--</p>
         </div>
-        <button className="assignee-logout-button">Logout</button>
+        <button className="assignee-logout-button" onClick={()=>navigate('/')}>Logout</button>
       </div>
       
       <div className="assignee-content">

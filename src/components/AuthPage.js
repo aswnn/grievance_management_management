@@ -6,14 +6,11 @@ import './UserDashboard.js';
 import './SupervisorDashboard.js';
 import './AssigneeDashboard.js';
 
-
-
 function AuthPage() {
   const [isSignup, setIsSignup] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [role, setRole] = useState('User');
   const [isForgotPassword, setIsForgotPassword] = useState(false);
   const [newPassword, setNewPassword] = useState('');
   const [verificationCode, setVerificationCode] = useState('');
@@ -65,7 +62,7 @@ function AuthPage() {
       }
 
       // Save the user's details to local storage as a simple registration simulation
-      localStorage.setItem(email, JSON.stringify({ password, role }));
+      localStorage.setItem(email, JSON.stringify({ password }));
       Swal.fire({
         title: 'Account Created',
         customClass: {
@@ -150,7 +147,14 @@ function AuthPage() {
     } else {
       // Check if the user is registered
       const storedUser = localStorage.getItem(email);
-      if (!storedUser) {
+
+      if (email === 'admin@admin.com' && password === '1234') {
+        navigate('/supervisor-dashboard');
+        return;
+      } else if (email === 'assignee@gmail.com' && password === '1234') {
+        navigate('/assignee-dashboard');
+        return;
+      } else if (!storedUser) {
         Swal.fire({
           title: 'Email Not Registered',
           text: 'Please sign up first.',
@@ -164,23 +168,12 @@ function AuthPage() {
         setIsSignup(true); // Switch to signup if not registered
       } else {
         const userDetails = JSON.parse(storedUser);
-
-        if (userDetails.password === password){
-          if (userDetails.role === role) {
-        if (userDetails.role === 'User') {
+        if (userDetails.password === password) {
           navigate('/user-dashboard');
-        } else if (userDetails.role === 'Supervisor') {
-          navigate('/supervisor-dashboard');
-        } else if (userDetails.role === 'Assignee') {
-          navigate('/assignee-dashboard');
-        }
-      
-          // Redirect to the role-specific dashboard here
-          
         } else {
           Swal.fire({
-            title: 'Invalid Role',
-            text: 'The role assigned is invalid.',
+            title: 'Incorrect Password',
+            text: 'Please try again.',
             customClass: {
               popup: 'custom-swal-popup',
               confirmButton: 'custom-swal-button',
@@ -189,21 +182,9 @@ function AuthPage() {
             },
           });
         }
-      }else {
-        Swal.fire({
-          title: 'Incorrect Password',
-          text: 'Please try again.',
-          customClass: {
-            popup: 'custom-swal-popup',
-            confirmButton: 'custom-swal-button',
-            text: 'custom-swal-text',
-            title: 'custom-swal-title',
-          },
-        }); 
+      }
     }
-  }
-}
-};
+  };
 
   const sendVerificationCode = () => {
     // Simulate sending a verification code (4-digit code generation)
@@ -213,7 +194,7 @@ function AuthPage() {
     Swal.fire({
       title: 'Verification Code Sent',
       text: `Verification code: ${code}`,
- // For demo purposes; in real applications, send via email
+      // For demo purposes; in real applications, send via email
       customClass: {
         popup: 'custom-swal-popup',
         confirmButton: 'custom-swal-button',
@@ -315,19 +296,6 @@ function AuthPage() {
               />
             </div>
           )}
-
-          <div className="form-group">
-            <label>Role</label>
-            <select
-              className="form-control"
-              value={role}
-              onChange={(e) => setRole(e.target.value)}
-            >
-              <option>User</option>
-              <option>Supervisor</option>
-              <option>Assignee</option>
-            </select>
-          </div>
 
           <button type="submit" className="btn-block">
             {isSignup
