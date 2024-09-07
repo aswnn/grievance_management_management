@@ -16,7 +16,7 @@ const AssigneeDashboard = () => {
           <h3>Pending Complaints</h3>
           <p>--</p>
         </div>
-        <button className="assignee-logout-button" onClick={()=>navigate('/')}>Logout</button>
+        <button className="assignee-logout-button" onClick={()=>navigate('/auth')}>Logout</button>
       </div>
       
       <div className="assignee-content">

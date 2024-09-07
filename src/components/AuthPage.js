@@ -17,6 +17,7 @@ function AuthPage() {
   const [generatedCode, setGeneratedCode] = useState('');
   const [isCodeVerified, setIsCodeVerified] = useState(false);
   const navigate = useNavigate();
+  
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -149,9 +150,12 @@ function AuthPage() {
       const storedUser = localStorage.getItem(email);
 
       if (email === 'admin@admin.com' && password === '1234') {
+        
         navigate('/supervisor-dashboard');
-        return;
-      } else if (email === 'assignee@gmail.com' && password === '1234') {
+        return; }
+        if (email === 'assignee@gmail.com' && password === '1234') {
+         
+        console.log("Navigating to assignee dashboard");
         navigate('/assignee-dashboard');
         return;
       } else if (!storedUser) {
@@ -169,6 +173,8 @@ function AuthPage() {
       } else {
         const userDetails = JSON.parse(storedUser);
         if (userDetails.password === password) {
+          
+          console.log("Navigating to user dashboard");
           navigate('/user-dashboard');
         } else {
           Swal.fire({
@@ -205,10 +211,13 @@ function AuthPage() {
   };
 
   return (
+    
     <div className="auth-container">
+    
       <h1 className="title1">Grievance Redressal Cell</h1>
       <div className="auth-form">
-        <h2>{isSignup ? 'Sign Up' : isForgotPassword ? 'Reset Password' : 'Sign In'}</h2>
+        <h2>{isSignup ? 'Sign Up' : isForgotPassword ? 'Reset Password' : 'Sign In'} </h2>
+        
         <form onSubmit={handleFormSubmit}>
           <div className="form-group">
             <label>Email address</label>
@@ -321,6 +330,7 @@ function AuthPage() {
         </form>
       </div>
     </div>
+    
   );
 }
 

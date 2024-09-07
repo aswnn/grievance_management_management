@@ -14,9 +14,9 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/auth" element={<AuthPage />} />
-          <Route path="/user-dashboard" element={<PrivateRoute role="User"><UserDashboard /></PrivateRoute>} />
-          <Route path="/supervisor-dashboard" element={<PrivateRoute role="Supervisor"><SupervisorDashboard /></PrivateRoute>} />
-          <Route path="/assignee-dashboard" element={<PrivateRoute role="Assignee"><AssigneeDashboard /></PrivateRoute>} />
+          <Route path="/user-dashboard" element={<PrivateRoute role={"User"} ><UserDashboard /></PrivateRoute>} />
+          <Route path="/supervisor-dashboard" element={<PrivateRoute role={"Supervisor"}><SupervisorDashboard /></PrivateRoute>} />
+          <Route path="/assignee-dashboard" element={<PrivateRoute role={"Assignee"}><AssigneeDashboard /></PrivateRoute>} />
           
         </Routes>
       </div>

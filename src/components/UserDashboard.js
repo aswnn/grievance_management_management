@@ -116,7 +116,7 @@ function UserDashboard() {
           <li className={activeTab === "profile" ? "active" : ""} onClick={() => setActiveTab("profile")}>Profile Info</li>
           <li className={activeTab === "register-complaint" ? "active" : ""} onClick={() => setActiveTab("register-complaint")}>Register Complaint</li>
           <li className={activeTab === "complaint-history" ? "active" : ""} onClick={() => setActiveTab("complaint-history")}>Complaint History</li>
-          <li><button className="logout-btn" onClick={navigate('/')}>Logout</button></li>
+          <li><button className="logout-btn" onClick={()=>navigate('/auth')}>Logout</button></li>
         </ul>
       </div>
       <div className="content">

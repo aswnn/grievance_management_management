@@ -1,3 +1,4 @@
+
 .auth-container {
   display: flex;
   flex-direction: column;
@@ -84,7 +85,9 @@ h2 {
   color: black !important;
 }
 
-
+.titlehome{
+  text-align: left;
+}
 
 
 .title1 {
